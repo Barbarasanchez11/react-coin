@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import '../styles/Home.css'
 
 
 function Home(){
@@ -11,8 +12,6 @@ useEffect(() => {
             const response = await fetch("https://api.coincap.io/v2/assets/")
 
             const data = await response.json()
-            console.log(data.data)
-            
             setCoins(data.data)
            
 
@@ -21,7 +20,7 @@ useEffect(() => {
         }
     }
     getCoin()
-},[coins])
+},[])
 
 
     return(
@@ -29,11 +28,11 @@ useEffect(() => {
         <div>
           <h1>Listado de monedas</h1>
           <ul>
-            {coins.map(coin => {
+            {coins.map(coin => (
                 <li key={coin.id}>
-                    <Link to={`/coin/${coin.id}`}>{coin.name}</Link>
+                    <Link to={`/coin/:${coin.id}`}>{coin.name}</Link>
                 </li>
-            })}
+            ))}
           </ul>
           </div>
         </>

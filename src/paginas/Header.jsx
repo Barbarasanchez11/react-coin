@@ -4,8 +4,8 @@ import Navbar from "../components/Navbar"
 
 const Header = () => {
     const links = [
-        {id:1, name:'Coins', path: '/Coin'},
-        {id: 2,name:'Favourites', path:'/Favourites'}
+        
+        {id: 2,name:'Favorites', path:'/favorites'}
     ]
 
     return (
